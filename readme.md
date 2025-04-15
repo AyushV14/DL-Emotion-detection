@@ -1,18 +1,23 @@
-# Emotion Detection using CNN
 
-This project focuses on **emotion detection** from facial expressions using a **Convolutional Neural Network (CNN)**. The model is trained to recognize various emotional states from grayscale facial images, achieving an accuracy of approximately **55%**.
+# 🎭 Emotion Detection from Facial Expressions using CNN
 
-## 🔍 Overview
+This project implements a deep learning-based model to detect **emotions from facial expressions** using the **FER-2013** dataset and a custom-built **Convolutional Neural Network (CNN)**. The model achieves **72.4% test accuracy**, and its lightweight architecture makes it suitable for deployment on **mobile and embedded devices**.
 
-Facial expression recognition plays a crucial role in human-computer interaction, mental health analysis, and smart surveillance systems. In this project, we implement a deep learning-based solution to classify facial expressions into different emotions using a CNN model.
+---
+
+## 📚 Abstract
+
+Emotion recognition is a key component in human-computer interaction, healthcare, education, and intelligent systems. This project presents a CNN-based classifier trained on the FER-2013 dataset to identify seven facial emotions: Angry, Disgust, Fear, Happy, Sad, Surprise, and Neutral. The model is optimized for efficiency and accuracy, making it ideal for real-time applications even on resource-constrained devices.
+
+---
 
 ## 📂 Dataset
 
-We use the publicly available **Facial Expression Recognition** dataset from Kaggle:
+We use the **Facial Expression Recognition (FER-2013)** dataset available on Kaggle:
 
 - 📎 [Dataset Link](https://www.kaggle.com/datasets/nicolejyt/facialexpressionrecognition)
 
-The dataset contains grayscale images of human faces categorized into various emotion classes such as:
+The dataset contains 48x48 pixel grayscale facial images with one of the following labels:
 - Angry
 - Disgust
 - Fear
@@ -21,45 +26,110 @@ The dataset contains grayscale images of human faces categorized into various em
 - Surprise
 - Neutral
 
-## 🧠 Model Architecture
+---
 
-The model is built using a **Convolutional Neural Network (CNN)**. Key components include:
+## 🧠 Model Overview
 
-- Multiple convolutional layers with ReLU activation
-- Max-pooling layers
-- Dropout layers for regularization
-- Fully connected dense layers
-- Softmax output layer for multi-class classification
+- Input: 48x48 grayscale image
+- Architecture: Custom CNN
+- Activation: ReLU
+- Pooling: MaxPooling
+- Regularization: Dropout
+- Output Layer: Softmax (7 classes)
+- Final Accuracy:
+  - Training: ~75%
+  - Validation: ~71%
+  - Test: **72.4%**
 
-> Final Accuracy: **~55%**
+---
+
+## ⚙️ Preprocessing
+
+1. **Normalization**: Pixel values scaled to [0, 1]
+2. **Reshape**: Converted to (48, 48, 1) shape
+3. **One-Hot Encoding** of labels
+4. **Data Augmentation**:
+   - Random rotation
+   - Zoom
+   - Horizontal flip
+
+---
 
 ## 🛠️ Technologies Used
 
 - Python
 - TensorFlow / Keras
-- NumPy, Matplotlib, Pandas
+- NumPy, Pandas
+- Matplotlib
 - Scikit-learn
-- OpenCV (optional for preprocessing or visualization)
+
+---
+
+## 🚀 How to Use
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/emotion-detection-cnn.git
+cd emotion-detection-cnn
+```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Download the dataset
+Download the dataset from [Kaggle](https://www.kaggle.com/datasets/nicolejyt/facialexpressionrecognition), extract it, and place it in the root folder.
+
+### 4. Train the model
+```python
+python train.py
+```
+
+### 5. Test the model
+```python
+python evaluate.py
+```
+
+### 6. Predict an emotion
+```python
+python predict.py --image path_to_image.jpg
+```
+
+---
 
 ## 📈 Results
 
-Despite the modest accuracy of 55%, the model demonstrates the potential of deep learning in facial emotion classification. With more fine-tuning, advanced architectures, or data augmentation, the accuracy can be further improved.
+- Best performance seen on **Happy** and **Neutral**
+- Confusion matrix shows occasional misclassification between **Fear** and **Surprise**
+- Lightweight design enables real-time inference
 
-## 🚀 Future Improvements
+---
 
-- Implement data augmentation techniques
-- Explore more advanced CNN architectures (e.g., ResNet, VGG)
-- Use transfer learning from pretrained models
-- Fine-tune hyperparameters and optimize training
-- Add real-time emotion detection using a webcam feed
+## 💡 Future Improvements
 
-## 🤝 Contributions
+- Use **Grad-CAM** to visualize model attention
+- Integrate webcam for live emotion detection
+- Explore **transfer learning** (e.g., VGG, MobileNet)
+- Handle **class imbalance** more effectively
+- Extend to **multimodal emotion detection** (voice, text)
 
-Contributions, suggestions, and improvements are welcome! Feel free to open issues or pull requests.
+---
 
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## ✍️ Authors
+
+- **Ayush Vikharankar**
+- **Rena Shoby**
+- **Shreyas Suryawanshi**
+
+> Department of Information Technology  
+> K.J. Somaiya School of Engineering, Mumbai, India
 
 ---
 
